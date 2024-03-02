@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public static class StateManager {
+public class StateManager : MonoBehaviour {
     
     static Transform[] ingredients = {}; 
 

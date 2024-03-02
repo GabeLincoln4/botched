@@ -1,18 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CauldronManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class CauldronManager : MonoBehaviour {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private static bool resetInputActivated = false;
+    private static bool submitInputActivated = false;
 }
