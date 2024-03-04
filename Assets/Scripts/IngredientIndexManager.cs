@@ -5,11 +5,15 @@ using System.Linq;
 public static class IngredientIndexManager {
 
     public static List<Transform> ingredients = new List<Transform>();
+    public static IngredientIndex ingredientIndex;
+    public static bool _wasInvoked = true;
 
     public static void AddIngredient(Transform ingredient) {
         ingredients.Add(ingredient);
         Debug.Log(ingredients.Count);
     }
+
+    
 
     public static void DeclareInstantiation() {
         for (int i = 0; i < ingredients.Count; i++) {

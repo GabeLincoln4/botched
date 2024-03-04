@@ -6,12 +6,17 @@ using System.Linq;
 public class IngredientIndex : MonoBehaviour
 {
     int ingredientIndexLength;
-    bool wasInvoked = false;
+    public bool wasInvoked;
+    Transform currentIngredient;
+    int previousIndexSize = 0;
 
+    void Awake () {
+        wasInvoked = false;
+    }
 
     void Update()
     {
-        CheckIngredientIndexSize(IngredientIndexManager.ingredients);
+        IncrementIngredientSlot(IngredientIndexManager.ingredients);
     }
 
     void CheckIngredientIndexSize(List<Transform> ingredientsList) {
@@ -23,9 +28,17 @@ public class IngredientIndex : MonoBehaviour
 
     void IncrementIngredientSlot(List<Transform> ingredientsList) {
 
-        Transform currentIngredient;
-        for (int i = 0; i < ingredientsList.Count; i++) {
-            Instantiate(ingredientsList.ElementAt(i));
+        if (ingredientsList.Count > previousIndexSize) {
+            for (int i = 0; i < ingredientsList.Count; i++) {
+                currentIngredient = Instantiate(ingredientsList.ElementAt(i));
+                currentIngredient.GetComponent<IngredientSlot>().instantiated = true;
+                ingredientsList[i] = currentIngredient;
+            }
+            Debug.Log(previousIndexSize);
+            previousIndexSize++;
+            Debug.Log(previousIndexSize);
+            wasInvoked = true;
         }
+        
     }
 }
