@@ -7,6 +7,8 @@ public class IngredientEventClick : MonoBehaviour, IPointerClickHandler {
     Transform ingredientSlot;
 
     public void OnPointerClick(PointerEventData eventData) {
-        Instantiate(ingredientSlot);
+
+        Debug.Log("Ingredient Clicked");
+        IngredientIndexManager.AddIngredient(ingredientSlot);
     }
 }
