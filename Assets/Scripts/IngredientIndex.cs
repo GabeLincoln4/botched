@@ -5,22 +5,27 @@ using System.Linq;
 
 public class IngredientIndex : MonoBehaviour
 {
-    [SerializeField]
-    Transform ingredientSlot;
     int ingredientIndexLength;
-    bool alreadyChecked;
+    bool wasInvoked = false;
 
-    void Awake () {
-        ingredientIndexLength = IngredientIndexManager.ingredients.Count;
-        alreadyChecked = false;
-    }
 
     void Update()
     {
-        if (IngredientIndexManager.ingredients.Count > 0 && !alreadyChecked) {
-            Debug.Log("Slot instantiated");
-            alreadyChecked = true;
-            Instantiate(IngredientIndexManager.ingredients.ElementAt(0));
+        CheckIngredientIndexSize(IngredientIndexManager.ingredients);
+    }
+
+    void CheckIngredientIndexSize(List<Transform> ingredientsList) {
+        if (ingredientsList.Count > 0 && !wasInvoked)  {
+            Instantiate(ingredientsList.ElementAt(0));
+            wasInvoked = true;
+        } 
+    }
+
+    void IncrementIngredientSlot(List<Transform> ingredientsList) {
+
+        Transform currentIngredient;
+        for (int i = 0; i < ingredientsList.Count; i++) {
+            Instantiate(ingredientsList.ElementAt(i));
         }
     }
 }
