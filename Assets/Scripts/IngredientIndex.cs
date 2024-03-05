@@ -5,26 +5,13 @@ using System.Linq;
 
 public class IngredientIndex : MonoBehaviour
 {
-    int ingredientIndexLength;
-    public bool wasInvoked;
-    Transform currentIngredient;
+    Transform _currentIngredient;
     int _previousIndexSize = 0;
-    Vector3 position;
-
-    void Awake () {
-        wasInvoked = false;
-    }
+    Vector3 _position;
 
     void Update()
     {
         IncrementIngredientSlot(IngredientIndexManager.ingredients, IngredientIndexManager._wasIterated);
-    }
-
-    void CheckIngredientIndexSize(List<Transform> ingredientsList) {
-        if (ingredientsList.Count > 0 && !wasInvoked)  {
-            Instantiate(ingredientsList.ElementAt(0));
-            wasInvoked = true;
-        } 
     }
 
     void IncrementIngredientSlot(List<Transform> ingredientsList, bool wasIterated) {
@@ -34,21 +21,25 @@ public class IngredientIndex : MonoBehaviour
                 if (ingredientsList.ElementAt(i).GetComponent<IngredientSlot>().instantiated == true) {
                     Debug.Log("Already used");
                 } else {
-                    currentIngredient = Instantiate(ingredientsList.ElementAt(i));
-                    position.x = (i + 0.5f) + 2.75f;
-                    position.y = 2f;
-                    currentIngredient.localPosition = position;
-                    currentIngredient.GetComponent<IngredientSlot>().instantiated = true;
-                    ingredientsList[i] = currentIngredient;
+                    _currentIngredient = InstantiateIngredientSlotDomain(ingredientsList.ElementAt(i), ingredientsList, i);
+                    ingredientsList[i] = _currentIngredient;
                 }
-                
             }
             IncrementMeasurementOfPreviousIndexSize(_previousIndexSize);
             IngredientIndexManager._wasIterated = true;
-            wasInvoked = true;
         }   
     }
+
     private int IncrementMeasurementOfPreviousIndexSize(int previousIndexSize) {
         return previousIndexSize++;
+    }
+
+    private Transform InstantiateIngredientSlotDomain(Transform currentIngredient, List<Transform> ingredients, int index) {
+        currentIngredient = Instantiate(currentIngredient);
+        _position.x = (index + 0.5f) + 2.75f;
+        _position.y = 2f;
+        currentIngredient.localPosition = _position;
+        currentIngredient.GetComponent<IngredientSlot>().instantiated = true;
+        return currentIngredient;
     }
 }
