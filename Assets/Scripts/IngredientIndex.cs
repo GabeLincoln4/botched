@@ -7,6 +7,7 @@ public class IngredientIndex : MonoBehaviour
 {
     Transform _currentIngredient;
     int _previousIndexSize = 0;
+    
     Vector3 _position;
 
     void Update()
@@ -16,7 +17,7 @@ public class IngredientIndex : MonoBehaviour
 
     void IncrementIngredientSlot(List<Transform> ingredientsList, bool wasIterated) {
 
-        if (ingredientsList.Count > _previousIndexSize && !wasIterated) {
+        if (ingredientsList.Count > _previousIndexSize && ingredientsList.Count < IngredientIndexManager._maxIndexSize + 1 && !wasIterated) {
             for (int i = 0; i < ingredientsList.Count; i++) {
                 if (ingredientsList.ElementAt(i).GetComponent<IngredientSlot>().instantiated == true) {
                     Debug.Log("Already used");
