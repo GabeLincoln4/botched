@@ -10,5 +10,6 @@ public class IngredientEventClick : MonoBehaviour, IPointerClickHandler {
 
         Debug.Log("Ingredient Clicked");
         IngredientIndexManager.AddIngredient(ingredientSlot);
+        IngredientIndexManager.ToggleIterationStatus();
     }
 }

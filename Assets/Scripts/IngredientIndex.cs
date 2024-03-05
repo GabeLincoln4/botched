@@ -8,7 +8,7 @@ public class IngredientIndex : MonoBehaviour
     int ingredientIndexLength;
     public bool wasInvoked;
     Transform currentIngredient;
-    int previousIndexSize = 0;
+    int _previousIndexSize = 0;
     Vector3 position;
 
     void Awake () {
@@ -17,8 +17,7 @@ public class IngredientIndex : MonoBehaviour
 
     void Update()
     {
-        
-        IncrementIngredientSlot(IngredientIndexManager.ingredients);
+        IncrementIngredientSlot(IngredientIndexManager.ingredients, IngredientIndexManager._wasIterated);
     }
 
     void CheckIngredientIndexSize(List<Transform> ingredientsList) {
@@ -28,9 +27,9 @@ public class IngredientIndex : MonoBehaviour
         } 
     }
 
-    void IncrementIngredientSlot(List<Transform> ingredientsList) {
+    void IncrementIngredientSlot(List<Transform> ingredientsList, bool wasIterated) {
 
-        if (ingredientsList.Count > previousIndexSize) {
+        if (ingredientsList.Count > _previousIndexSize && !wasIterated) {
             for (int i = 0; i < ingredientsList.Count; i++) {
                 if (ingredientsList.ElementAt(i).GetComponent<IngredientSlot>().instantiated == true) {
                     Debug.Log("Already used");
@@ -44,11 +43,12 @@ public class IngredientIndex : MonoBehaviour
                 }
                 
             }
-            Debug.Log(previousIndexSize);
-            previousIndexSize++;
-            Debug.Log(previousIndexSize);
+            IncrementMeasurementOfPreviousIndexSize(_previousIndexSize);
+            IngredientIndexManager._wasIterated = true;
             wasInvoked = true;
-        }
-        
+        }   
+    }
+    private int IncrementMeasurementOfPreviousIndexSize(int previousIndexSize) {
+        return previousIndexSize++;
     }
 }
