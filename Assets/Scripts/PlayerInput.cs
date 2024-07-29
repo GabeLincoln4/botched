@@ -3,11 +3,15 @@ using System.Collections;
 
 public class PlayerInput : MonoBehaviour
 {
+
+    [SerializeField]
+    private GameEvent _onQKeyPressed;
+
     private void Update ()
     {
         if (Input.GetKeyDown("q"))
         {
-            Debug.Log("q key has been pressed.");
+            _onQKeyPressed.Raise();
         }
     }
 }
