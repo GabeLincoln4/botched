@@ -6,19 +6,15 @@ public class IngredientFunctionLibrary : MonoBehaviour
 {
 
     [SerializeField]
-    private Transform _gameObject;
+    private ListVariableObject _ingredients;
 
-    private List<Transform> _ingredients;
-
-    public void AddGameObjectToList (ListVariableObject gameObjects)
+    public void AddGameObjectToList (Transform gameObject)
     {
-        _ingredients = gameObjects._gameObjects;
-
-        _ingredients.Add(_gameObject);
+        _ingredients._gameObjects.Add(gameObject);
     }
 
     private void OnDisable ()
     {
-        _ingredients.Clear();
+        _ingredients._gameObjects.Clear();
     }
 }

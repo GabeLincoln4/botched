@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77375379b4113fb46992aefc373f1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 8698997849414123807, guid: 925b28061ca6fe94d95c7b4041e470f0, type: 3}
+  _ingredients: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
 --- !u!4 &88936709
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,8 +1390,8 @@ MonoBehaviour:
         m_MethodName: AddGameObjectToList
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
-          m_ObjectArgumentAssemblyTypeName: ListVariableObject, Assembly-CSharp
+          m_ObjectArgument: {fileID: 8698997849414123807, guid: 925b28061ca6fe94d95c7b4041e470f0, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
