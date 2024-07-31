@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8571265058570052309}
   - component: {fileID: 6186689131403495066}
   m_Layer: 0
-  m_Name: Ingredient D
+  m_Name: Ingredient Slot D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
