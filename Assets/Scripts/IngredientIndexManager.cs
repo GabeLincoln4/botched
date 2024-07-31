@@ -41,7 +41,7 @@ public static class IngredientIndexManager {
 
     public static void DeclareInstantiation() {
         for (int i = 0; i < ingredients.Count; i++) {
-            ingredients.ElementAt(i).GetComponent<IngredientSlot>().instantiated = true;
+            ingredients.ElementAt(i).GetComponent<IngredientSlot>()._instantiated = true;
         }
     }
 }

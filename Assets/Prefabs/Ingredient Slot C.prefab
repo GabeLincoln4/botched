@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4664583690419570074}
   - component: {fileID: 3815686968180983709}
+  - component: {fileID: 4506896621130971575}
   m_Layer: 0
   m_Name: Ingredient Slot C
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4506896621130971575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164504712201761110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5b61e8a62ec2b409c6055968d476b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiated: 0

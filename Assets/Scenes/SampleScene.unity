@@ -974,6 +974,7 @@ GameObject:
   - component: {fileID: 785275355}
   - component: {fileID: 785275354}
   - component: {fileID: 785275356}
+  - component: {fileID: 785275357}
   m_Layer: 0
   m_Name: IngredientIndex
   m_TagString: Untagged
@@ -1060,6 +1061,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e218c82c42b5746b7873732da07c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ingredientsBooleanValues: {fileID: 11400000, guid: 1bf8d0a3dbde0f743b24de44635e02b6, type: 2}
+--- !u!114 &785275357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785275353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc04405bde12384bbc9fcfec7b5cd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 624ac0a9450e04a42ae26eb13611164f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 785275356}
+        m_TargetAssemblyTypeName: IngredientIndex, Assembly-CSharp
+        m_MethodName: FillIngredientIndex
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
+          m_ObjectArgumentAssemblyTypeName: ListVariableObject, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &825811753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1158,7 @@ MonoBehaviour:
   _onWKeyPressed: {fileID: 11400000, guid: 777a3bec1a2cee04ca9659ca4068aee0, type: 2}
   _onAKeyPressed: {fileID: 11400000, guid: ab12b210fffbebf488fa8addb5f61e31, type: 2}
   _onSKeyPressed: {fileID: 11400000, guid: cdbcbf40c42355e44aa218eda1976d6f, type: 2}
+  _onInputPressed: {fileID: 11400000, guid: 624ac0a9450e04a42ae26eb13611164f, type: 2}
 --- !u!4 &990080964
 Transform:
   m_ObjectHideFlags: 0
