@@ -8,54 +8,10 @@ public class IngredientIndex : MonoBehaviour
 
     [SerializeField]
     private ListOfBooleanVariableObject _ingredientsBooleanValues;
-    Transform _currentIngredient;
-    int _previousIndexSize = 0;
-    
-    Vector3 _position;
-
-    void Update()
-    {
-        IncrementIngredientSlot(IngredientIndexManager.ingredients, IngredientIndexManager._wasIterated);
-    }
-
-    private void OnDisable ()
-    {
-        _ingredientsBooleanValues._booleanValues.Clear();
-    }
-
-    void IncrementIngredientSlot(List<Transform> ingredientsList, bool wasIterated) {
-
-        if (ingredientsList.Count > _previousIndexSize && ingredientsList.Count < IngredientIndexManager._maxIndexSize + 1 && !wasIterated) {
-            for (int i = 0; i < ingredientsList.Count; i++) {
-                if (ingredientsList.ElementAt(i).GetComponent<IngredientSlot>()._instantiated == true) {
-                    Debug.Log("Already used");
-                } else {
-                    _currentIngredient = InstantiateIngredientSlotDomain(ingredientsList.ElementAt(i), ingredientsList, i);
-                    ingredientsList[i] = _currentIngredient;
-                }
-            }
-            IncrementMeasurementOfPreviousIndexSize(_previousIndexSize);
-            IngredientIndexManager._wasIterated = true;
-        }   
-    }
-
-    private int IncrementMeasurementOfPreviousIndexSize(int previousIndexSize) {
-        return previousIndexSize++;
-    }
-
-    private Transform InstantiateIngredientSlotDomain(Transform currentIngredient, List<Transform> ingredients, int index) {
-        currentIngredient = Instantiate(currentIngredient);
-        _position.x = (index + 0.5f) + 2.75f;
-        _position.y = 2f;
-        currentIngredient.localPosition = _position;
-        currentIngredient.GetComponent<IngredientSlot>()._instantiated = true;
-        return currentIngredient;
-    }
 
     public void FillIngredientIndex (ListVariableObject ingredients)
     {
         Transform instantiatedGameObject;
-        _ingredientsBooleanValues._booleanValues.Add(false);
         var position = Vector3.zero;
         
         for (int j = 0; j < _ingredientsBooleanValues._booleanValues.Count; j++)
@@ -63,16 +19,22 @@ public class IngredientIndex : MonoBehaviour
             if (_ingredientsBooleanValues._booleanValues[j] == false)
             {
                 instantiatedGameObject = Instantiate(ingredients._gameObjects[j]);
-                instantiatedGameObject.localScale = Vector3.one / 1.5f;
-                position.x = j / 1f + 3.25f;
-                position.z = -3f;
-                position.y = 2f;
-                instantiatedGameObject.localPosition = position;
-                
+                instantiatedGameObject.localScale = ConfigureScale(1.5f);
+                instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, position, 3.25f, 1, 2, -3);
                 _ingredientsBooleanValues._booleanValues[j] = true;
             }
-            else
-            { Debug.Log("ingredient boolean is true"); }
         }
     }
+
+    private Vector3 ConfigurePositionOfIngredientIndex (int currentElement, Vector3 position, float offset, float distanceFromNeighboringElement, float yPosition, float zPosition)
+    {
+        position.x = currentElement / distanceFromNeighboringElement + offset;
+        position.z = zPosition;
+        position.y = yPosition;
+
+        return position;
+    }
+
+    private Vector3 ConfigureScale (float scale)
+    { return Vector3.one / scale; }
 }

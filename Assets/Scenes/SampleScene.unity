@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ingredients: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
+  _listOfBooleanVariableObject: {fileID: 11400000, guid: 1bf8d0a3dbde0f743b24de44635e02b6, type: 2}
 --- !u!4 &88936709
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,6 +1079,18 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 88936708}
+        m_TargetAssemblyTypeName: IngredientFunctionLibrary, Assembly-CSharp
+        m_MethodName: AddBooleanVariableToListObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 785275356}
         m_TargetAssemblyTypeName: IngredientIndex, Assembly-CSharp
         m_MethodName: FillIngredientIndex
