@@ -56,13 +56,19 @@ public class IngredientIndex : MonoBehaviour
     {
         Transform instantiatedGameObject;
         _ingredientsBooleanValues._booleanValues.Add(false);
+        var position = Vector3.zero;
         
         for (int j = 0; j < _ingredientsBooleanValues._booleanValues.Count; j++)
         {
             if (_ingredientsBooleanValues._booleanValues[j] == false)
             {
-                Instantiate(ingredients._gameObjects[j]);
-                Debug.Log("ingredient boolean was orignally false but is now true.");
+                instantiatedGameObject = Instantiate(ingredients._gameObjects[j]);
+                instantiatedGameObject.localScale = Vector3.one / 1.5f;
+                position.x = j / 1f + 3.25f;
+                position.z = -3f;
+                position.y = 2f;
+                instantiatedGameObject.localPosition = position;
+                
                 _ingredientsBooleanValues._booleanValues[j] = true;
             }
             else
