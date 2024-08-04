@@ -17,6 +17,9 @@ public class PlayerInput : MonoBehaviour
     private GameEvent _onSKeyPressed;
 
     [SerializeField]
+    private GameEvent _onSpaceKeyPressed;
+
+    [SerializeField]
     private GameEvent _onInputPressed;
 
     private void Update ()
@@ -43,6 +46,11 @@ public class PlayerInput : MonoBehaviour
         {
             _onSKeyPressed.Raise();
             _onInputPressed.Raise();
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            _onSpaceKeyPressed.Raise();
         }
     }
 }

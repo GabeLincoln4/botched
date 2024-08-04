@@ -1171,6 +1171,7 @@ MonoBehaviour:
   _onWKeyPressed: {fileID: 11400000, guid: 777a3bec1a2cee04ca9659ca4068aee0, type: 2}
   _onAKeyPressed: {fileID: 11400000, guid: ab12b210fffbebf488fa8addb5f61e31, type: 2}
   _onSKeyPressed: {fileID: 11400000, guid: cdbcbf40c42355e44aa218eda1976d6f, type: 2}
+  _onSpaceKeyPressed: {fileID: 11400000, guid: 068892bdd269b00429cd9312b9dbf3b4, type: 2}
   _onInputPressed: {fileID: 11400000, guid: 624ac0a9450e04a42ae26eb13611164f, type: 2}
 --- !u!4 &990080964
 Transform:
@@ -1284,7 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844f5b389f3a1d74ebfa997da5f072be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recipeList: {fileID: 0}
+  _recipeList: {fileID: 11400000, guid: 227463928aeed364189152514493fcd5, type: 2}
 --- !u!4 &1095498717
 Transform:
   m_ObjectHideFlags: 0
