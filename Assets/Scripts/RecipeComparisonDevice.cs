@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class RecipeComparisonDevice : MonoBehaviour
 {
@@ -12,16 +13,16 @@ public class RecipeComparisonDevice : MonoBehaviour
 
     public void CheckForMatchBetweenPredeterminedRecipeAndPlayerRecipe ()
     {
+        bool notAMatch = false;
         for (int i = 0; i < _playerRecipe._gameObjects.Count; i++)
         {
-            if (_playerRecipe._gameObjects[i] == _predeterminedRecipe._gameObjects[i])
-            {
-                Debug.Log("ingredient order matches for " + _playerRecipe._gameObjects[i].name + ".");
-            }
-            else
-            {
-                Debug.Log("order does not match");
-            }
+            if (_playerRecipe._gameObjects[i] != _predeterminedRecipe._gameObjects[i])
+            { notAMatch = true; }
         }
+
+        if (notAMatch)
+        { Debug.Log("botched... but not in a good way"); }
+        else 
+        { Debug.Log("perfect...."); }
     }
 }
