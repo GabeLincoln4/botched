@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 125149423}
   - component: {fileID: 125149422}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Title Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 134731021}
   - component: {fileID: 134731020}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Input Labels Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1231,7 +1231,7 @@ Transform:
   m_GameObject: {fileID: 675214678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.08, y: 0, z: -6}
+  m_LocalPosition: {x: 16.1, y: 0, z: -6}
   m_LocalScale: {x: 18, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2550,7 +2550,7 @@ GameObject:
   - component: {fileID: 1511274152}
   - component: {fileID: 1511274151}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Ingredient Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
