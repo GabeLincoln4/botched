@@ -22,6 +22,9 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private GameEvent _onInputPressed;
 
+    [SerializeField]
+    private GameEvent _onLeftShiftKeyPressed;
+
     private void Update ()
     {
         if (Input.GetKeyDown("q"))
@@ -51,6 +54,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             _onSpaceKeyPressed.Raise();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _onLeftShiftKeyPressed.Raise();
         }
     }
 }
