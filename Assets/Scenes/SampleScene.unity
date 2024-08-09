@@ -358,6 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ingredients: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
   _listOfBooleanVariableObject: {fileID: 11400000, guid: 1bf8d0a3dbde0f743b24de44635e02b6, type: 2}
+  _onTrueVariable: {fileID: 11400000, guid: ffe8806d03d9f8749a93a106a6dfee56, type: 2}
+  _onFalseVariable: {fileID: 11400000, guid: 413f530a837706e4fb5d39338fa6fed4, type: 2}
 --- !u!4 &88936709
 Transform:
   m_ObjectHideFlags: 0
@@ -2392,6 +2394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1224441004}
   - component: {fileID: 1224441005}
+  - component: {fileID: 1224441006}
   m_Layer: 0
   m_Name: Activate Grimoire Response
   m_TagString: Untagged
@@ -2430,6 +2433,18 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 88936708}
+        m_TargetAssemblyTypeName: IngredientFunctionLibrary, Assembly-CSharp
+        m_MethodName: CheckForBooleanState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 16a8caef0e7c5c44cbdfcef499855480, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BooleanVariableObject, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1196021907}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -2494,6 +2509,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1224441006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224441003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc04405bde12384bbc9fcfec7b5cd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: ffe8806d03d9f8749a93a106a6dfee56, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 88936708}
+        m_TargetAssemblyTypeName: IngredientFunctionLibrary, Assembly-CSharp
+        m_MethodName: DebugValue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
