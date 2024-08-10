@@ -2301,6 +2301,7 @@ GameObject:
   - component: {fileID: 1224441006}
   - component: {fileID: 1224441007}
   - component: {fileID: 1224441008}
+  - component: {fileID: 1224441009}
   m_Layer: 0
   m_Name: Activate Grimoire Response
   m_TagString: Untagged
@@ -2439,6 +2440,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1408732384}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: StartCurrentTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 16a8caef0e7c5c44cbdfcef499855480, type: 2}
         m_TargetAssemblyTypeName: BooleanVariableObject, Assembly-CSharp
         m_MethodName: SetTrue
@@ -2478,6 +2491,34 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1224441009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224441003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc04405bde12384bbc9fcfec7b5cd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: bb46a9a765e209f47b3c9f4e6362312a, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 134731022}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1228649475
 GameObject:
@@ -2800,6 +2841,54 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5041870794498248750, guid: 7569b70c682d31843bb28085cebd95af, type: 3}
   m_PrefabInstance: {fileID: 1372711809}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1408732383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1408732385}
+  - component: {fileID: 1408732384}
+  m_Layer: 0
+  m_Name: Input Labels Canvas Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1408732384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408732383}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41008d04b03bbdd4582b48f5d60d328e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerGameObject: {fileID: 1408732383}
+  _onTimerOff: {fileID: 11400000, guid: bb46a9a765e209f47b3c9f4e6362312a, type: 2}
+  _timerDurationInSeconds: {fileID: 11400000, guid: 016351110408dd6439c0ad9f6c8feede, type: 2}
+  _customDuration: 3
+--- !u!4 &1408732385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408732383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47099185, y: 1.331988, z: -1.9054122}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1456451019 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3634446473302098250, guid: 0a6aef4c24317b34fb061e56222375e7, type: 3}
@@ -4121,3 +4210,4 @@ SceneRoots:
   - {fileID: 1224441004}
   - {fileID: 1274871503}
   - {fileID: 1196021906}
+  - {fileID: 1408732385}
