@@ -7,13 +7,13 @@ public class BooleanVariableObject : ScriptableObject
 {
     public bool _booleanValue;
 
-    public void SetTrue ()
+    public void SetTrue (BooleanVariableObject booleanValue)
     {
-        _booleanValue = true;
+        booleanValue._booleanValue = true;
     }
 
-    public void SetFalse ()
+    public void SetFalse (BooleanVariableObject booleanValue)
     {
-        _booleanValue = false;
+        booleanValue._booleanValue = false;
     }
 }

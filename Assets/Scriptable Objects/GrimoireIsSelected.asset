@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0749e7a46631cf2418c0416d4798a5a9, type: 3}
   m_Name: GrimoireIsSelected
   m_EditorClassIdentifier: 
-  _booleanValue: 0
+  _booleanValue: 1

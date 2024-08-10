@@ -17,6 +17,9 @@ public class IngredientFunctionLibrary : MonoBehaviour
     [SerializeField]
     private GameEvent _onFalseVariable;
 
+    [SerializeField]
+    private BooleanVariableObject _grimoireActivationState;
+
     public void AddGameObjectToList (Transform gameObject)
     {
         _ingredients._gameObjects.Add(gameObject);
@@ -48,5 +51,6 @@ public class IngredientFunctionLibrary : MonoBehaviour
     {
         _ingredients._gameObjects.Clear();
         _listOfBooleanVariableObject._booleanValues.Clear();
+        _grimoireActivationState._booleanValue = true;
     }
 }
