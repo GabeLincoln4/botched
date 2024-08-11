@@ -303,7 +303,8 @@ PrefabInstance:
       value: 'Bioluminescent Water
 
 
-        Prevalent in regions of long darkness.'
+        Prevalent in regions of long darkness.
+        The water seals all of the other ingredients into place.'
       objectReference: {fileID: 0}
     - target: {fileID: 3752522550434101561, guid: 0a6aef4c24317b34fb061e56222375e7, type: 3}
       propertyPath: m_fontSize
@@ -357,7 +358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ingredients: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
+  _listOfBooleanVariablesForPredeterminedRecipeDisplay: {fileID: 11400000, guid: fe43b5ceb8e56964ba06d1462b740bf2, type: 2}
   _listOfBooleanVariableObject: {fileID: 11400000, guid: 1bf8d0a3dbde0f743b24de44635e02b6, type: 2}
+  _predeterminedRecipeMatchTracker: {fileID: 11400000, guid: ac583e19cc2af834f9022b4c9b5a1c90, type: 2}
+  _secretRecipeMatchTracker: {fileID: 11400000, guid: fb9692ae76c6cec4f9019d619656c532, type: 2}
   _onTrueVariable: {fileID: 11400000, guid: ffe8806d03d9f8749a93a106a6dfee56, type: 2}
   _onFalseVariable: {fileID: 11400000, guid: 413f530a837706e4fb5d39338fa6fed4, type: 2}
   _grimoireActivationState: {fileID: 11400000, guid: 16a8caef0e7c5c44cbdfcef499855480, type: 2}
@@ -746,6 +750,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d2d81dd20d2fb4e9b79e9836cf2e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &345681797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 345681799}
+  - component: {fileID: 345681798}
+  - component: {fileID: 345681800}
+  - component: {fileID: 345681801}
+  m_Layer: 0
+  m_Name: Predetermined Recipe Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &345681798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345681797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e218c82c42b5746b7873732da07c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ingredientsBooleanValues: {fileID: 11400000, guid: fe43b5ceb8e56964ba06d1462b740bf2, type: 2}
+--- !u!4 &345681799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345681797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47099185, y: 1.331988, z: -1.9054122}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &345681800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345681797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47da89182734e3b46bebefd1a525550a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onStartGameEvent: {fileID: 11400000, guid: fda3873485c8c7f43a49cfed97c05086, type: 2}
+--- !u!114 &345681801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345681797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc04405bde12384bbc9fcfec7b5cd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: fda3873485c8c7f43a49cfed97c05086, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 345681798}
+        m_TargetAssemblyTypeName: IngredientIndex, Assembly-CSharp
+        m_MethodName: FillIngredientIndex
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 227463928aeed364189152514493fcd5, type: 2}
+          m_ObjectArgumentAssemblyTypeName: ListVariableObject, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &360267125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1239,7 @@ GameObject:
   - component: {fileID: 675214681}
   - component: {fileID: 675214680}
   m_Layer: 0
-  m_Name: Descriptions
+  m_Name: Grimoire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2286,7 +2378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lerpedValue: {x: 0, y: 0, z: 0}
-  _duration: 3
+  _duration: 2
   _targetPosition: {x: 0.01, y: 0, z: -6}
   _currentGameObject: {fileID: 675214682}
 --- !u!1 &1224441003
@@ -2697,7 +2789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lerpedValue: {x: 0, y: 0, z: 0}
-  _duration: 3
+  _duration: 2
   _targetPosition: {x: 16.1, y: 0, z: -6}
   _currentGameObject: {fileID: 675214682}
 --- !u!4 &1274871503
@@ -2873,7 +2965,7 @@ MonoBehaviour:
   _timerGameObject: {fileID: 1408732383}
   _onTimerOff: {fileID: 11400000, guid: bb46a9a765e209f47b3c9f4e6362312a, type: 2}
   _timerDurationInSeconds: {fileID: 11400000, guid: 016351110408dd6439c0ad9f6c8feede, type: 2}
-  _customDuration: 3
+  _customDuration: 2
 --- !u!4 &1408732385
 Transform:
   m_ObjectHideFlags: 0
@@ -3308,6 +3400,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerRecipe: {fileID: 11400000, guid: d6368cde7c1a7b04799ade68bfa8ff29, type: 2}
   _predeterminedRecipe: {fileID: 11400000, guid: 227463928aeed364189152514493fcd5, type: 2}
+  _secretRecipe: {fileID: 11400000, guid: f6009863062e67746862dad351d76d65, type: 2}
+  _predeterminedRecipeMatchTracker: {fileID: 11400000, guid: ac583e19cc2af834f9022b4c9b5a1c90, type: 2}
+  _secretRecipeMatchTracker: {fileID: 11400000, guid: fb9692ae76c6cec4f9019d619656c532, type: 2}
+  _functionLibrary: {fileID: 88936708}
 --- !u!4 &1843829143
 Transform:
   m_ObjectHideFlags: 0
@@ -4211,3 +4307,4 @@ SceneRoots:
   - {fileID: 1274871503}
   - {fileID: 1196021906}
   - {fileID: 1408732385}
+  - {fileID: 345681799}

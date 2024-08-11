@@ -9,7 +9,16 @@ public class IngredientFunctionLibrary : MonoBehaviour
     private ListVariableObject _ingredients;
 
     [SerializeField]
+    private ListOfBooleanVariableObject _listOfBooleanVariablesForPredeterminedRecipeDisplay;
+
+    [SerializeField]
     private ListOfBooleanVariableObject _listOfBooleanVariableObject;
+
+    [SerializeField] 
+    private ListOfBooleanVariableObject _predeterminedRecipeMatchTracker;
+
+    [SerializeField]
+    private ListOfBooleanVariableObject _secretRecipeMatchTracker;
 
     [SerializeField]
     private GameEvent _onTrueVariable;
@@ -28,6 +37,11 @@ public class IngredientFunctionLibrary : MonoBehaviour
     public void AddBooleanVariableToListObject ()
     {
         _listOfBooleanVariableObject._booleanValues.Add(false);
+    }
+
+    public void AddBooleanVariableToListObject (ListOfBooleanVariableObject booleanList)
+    {
+        booleanList._booleanValues.Add(false);
     }
 
     public void CheckForBooleanState (BooleanVariableObject booleanVariableObject)
@@ -51,6 +65,17 @@ public class IngredientFunctionLibrary : MonoBehaviour
     {
         _ingredients._gameObjects.Clear();
         _listOfBooleanVariableObject._booleanValues.Clear();
+        _predeterminedRecipeMatchTracker._booleanValues.Clear();
+        _secretRecipeMatchTracker._booleanValues.Clear();
         _grimoireActivationState._booleanValue = true;
+        SetAllBooleanValuesInAListToFalse(_listOfBooleanVariablesForPredeterminedRecipeDisplay);
+    }
+
+    private void SetAllBooleanValuesInAListToFalse (ListOfBooleanVariableObject booleanList)
+    {
+        for (int i = 0; i < booleanList._booleanValues.Count; i++)
+        {
+            booleanList._booleanValues[i] = false;
+        }
     }
 }
