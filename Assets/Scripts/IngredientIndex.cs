@@ -9,6 +9,21 @@ public class IngredientIndex : MonoBehaviour
     [SerializeField]
     private ListOfBooleanVariableObject _ingredientsBooleanValues;
 
+    [SerializeField]
+    private float _scale;
+
+    [SerializeField]
+    private float _offset;
+
+    [SerializeField]
+    private float _distanceFromNeighboringElement;
+
+    [SerializeField]
+    private float _yPosition;
+
+    [SerializeField]
+    private float _zPosition;
+
     public void FillIngredientIndex (ListVariableObject ingredients)
     {
         Transform instantiatedGameObject;
@@ -19,8 +34,8 @@ public class IngredientIndex : MonoBehaviour
             if (_ingredientsBooleanValues._booleanValues[j] == false)
             {
                 instantiatedGameObject = Instantiate(ingredients._gameObjects[j]);
-                instantiatedGameObject.localScale = ConfigureScale(1.5f);
-                instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, position, 3.25f, 1, 2, -3);
+                instantiatedGameObject.localScale = ConfigureScale(_scale);
+                instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, position, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
                 _ingredientsBooleanValues._booleanValues[j] = true;
             }
         }

@@ -29,19 +29,30 @@ public class IngredientFunctionLibrary : MonoBehaviour
     [SerializeField]
     private BooleanVariableObject _grimoireActivationState;
 
+    private int listSize = 4;
+
     public void AddGameObjectToList (Transform gameObject)
     {
-        _ingredients._gameObjects.Add(gameObject);
+        if (_ingredients._gameObjects.Count < listSize)
+        {
+            _ingredients._gameObjects.Add(gameObject);
+        }
     }
 
     public void AddBooleanVariableToListObject ()
     {
-        _listOfBooleanVariableObject._booleanValues.Add(false);
+        if (_listOfBooleanVariableObject._booleanValues.Count < listSize)
+        {
+            _listOfBooleanVariableObject._booleanValues.Add(false);
+        }   
     }
 
     public void AddBooleanVariableToListObject (ListOfBooleanVariableObject booleanList)
     {
-        booleanList._booleanValues.Add(false);
+        if (booleanList._booleanValues.Count < listSize)
+        { booleanList._booleanValues.Add(false); }
+        else 
+        { Debug.Log("List of boolean variables cannot surpass current index size."); }
     }
 
     public void CheckForBooleanState (BooleanVariableObject booleanVariableObject)
