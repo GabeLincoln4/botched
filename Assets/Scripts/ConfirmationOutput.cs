@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ConfirmationOutput : MonoBehaviour
 {
+    [SerializeField]
+    [Range(.1f, 1f)]
+    private float _durationOfFadeIn;
+
     private Color GetColor (Transform gameObject)
     {   
         return gameObject.GetComponent<MeshRenderer>().material.color; 
@@ -12,8 +16,11 @@ public class ConfirmationOutput : MonoBehaviour
     public void IncrementAlphaValue (Transform targetGameObject)
     {
         Color materialColor = GetColor(targetGameObject);
-        materialColor.a += .25f * Time.deltaTime;
-        targetGameObject.GetComponent<MeshRenderer>().material.color = materialColor;
+        if (materialColor.a <= 1f)
+        {
+            materialColor.a += _durationOfFadeIn * Time.deltaTime;
+            targetGameObject.GetComponent<MeshRenderer>().material.color = materialColor;
+        }
     }
 
 
