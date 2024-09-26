@@ -49,7 +49,7 @@ public class IngredientIndex : MonoBehaviour
     }
 
     private void InitializeIngredientIndexPosition()
-    { _ingredientIndexPosition = Vector3.zero; }
+    { _ingredientIndexPosition = InitializePositionIn3DSpace(); }
 
     private bool AssertThatBooleanValueAtSpecifiedElementIsEqualToFalse(int currentElement)
     { 
@@ -82,4 +82,7 @@ public class IngredientIndex : MonoBehaviour
 
     private void SetBooleanVariableToTrueInIngredientsBooleanValuesList(int currentElement)
     { _ingredientsBooleanValues._booleanValues[currentElement] = true; }
+
+    private Vector3 InitializePositionIn3DSpace()
+    { return PositionFunctionLibrary.InitializePositionIn3DSpace(_ingredientIndexPosition); }
 }
