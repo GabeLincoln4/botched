@@ -25,23 +25,26 @@ public class IngredientIndex : MonoBehaviour
     private float _zPosition;
 
     private Vector3 _ingredientIndexPosition;
+    private Transform _instantiatedGameObject;
 
     public void FillIngredientIndex (ListVariableObject ingredients)
     {
-        Transform instantiatedGameObject;
-        _ingredientIndexPosition = Vector3.zero;
+        InitializeIngredientIndexPosition();
         
         for (int j = 0; j < _ingredientsBooleanValues._booleanValues.Count; j++)
         {
             if (_ingredientsBooleanValues._booleanValues[j] == false)
             {
-                instantiatedGameObject = Instantiate(ingredients._gameObjects[j]);
-                instantiatedGameObject.localScale = ConfigureScale(_scale);
-                instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, _ingredientIndexPosition, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
+                _instantiatedGameObject = Instantiate(ingredients._gameObjects[j]);
+                _instantiatedGameObject.localScale = ConfigureScale(_scale);
+                _instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, _ingredientIndexPosition, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
                 _ingredientsBooleanValues._booleanValues[j] = true;
             }
         }
     }
+
+    private void InitializeIngredientIndexPosition()
+    { _ingredientIndexPosition = Vector3.zero; }
 
     private Vector3 ConfigurePositionOfIngredientIndex (int currentElement, Vector3 position, float offset, float distanceFromNeighboringElement, float yPosition, float zPosition)
     {
