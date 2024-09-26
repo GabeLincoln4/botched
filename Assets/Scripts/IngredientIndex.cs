@@ -63,7 +63,7 @@ public class IngredientIndex : MonoBehaviour
     { _instantiatedGameObject = Instantiate(ingredientListGameObject); }
 
     private void ConfigureScale ()
-    { _scaledDownIndex = Vector3.one / _scale; }
+    { _scaledDownIndex = AlterScaleOfGivenTransform(); }
 
     private void SetInstantiatedGameObjectLocalScaleToScaledDownIndex()
     { _instantiatedGameObject.localScale = _scaledDownIndex; }
@@ -82,6 +82,9 @@ public class IngredientIndex : MonoBehaviour
 
     private void SetBooleanVariableToTrueInIngredientsBooleanValuesList(int currentElement)
     { _ingredientsBooleanValues._booleanValues[currentElement] = true; }
+
+    private Vector3 AlterScaleOfGivenTransform()
+    { return ScaleFunctionLibrary.AlterScaleOfGivenTransform(_scale); }
 
     private Vector3 InitializePositionIn3DSpace()
     { return PositionFunctionLibrary.InitializePositionIn3DSpace(_ingredientIndexPosition); }
