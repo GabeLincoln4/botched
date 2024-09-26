@@ -26,6 +26,7 @@ public class IngredientIndex : MonoBehaviour
 
     private Vector3 _ingredientIndexPosition;
     private Transform _instantiatedGameObject;
+    private Vector3 _scaledDownIndex;
 
     public void FillIngredientIndex (ListVariableObject ingredients)
     {
@@ -36,7 +37,8 @@ public class IngredientIndex : MonoBehaviour
             if (_ingredientsBooleanValues._booleanValues[j] == false)
             {
                 InstantiateGameObjectAtSpecifiedElement(ingredients._gameObjects[j]);
-                _instantiatedGameObject.localScale = ConfigureScale(_scale);
+                ConfigureScale();
+                _instantiatedGameObject.localScale = _scaledDownIndex;
                 _instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, _ingredientIndexPosition, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
                 _ingredientsBooleanValues._booleanValues[j] = true;
             }
@@ -58,6 +60,6 @@ public class IngredientIndex : MonoBehaviour
         return position;
     }
 
-    private Vector3 ConfigureScale (float scale)
-    { return Vector3.one / scale; }
+    private void ConfigureScale ()
+    { _scaledDownIndex = Vector3.one / _scale; }
 }
