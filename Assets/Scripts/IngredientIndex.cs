@@ -24,10 +24,12 @@ public class IngredientIndex : MonoBehaviour
     [SerializeField]
     private float _zPosition;
 
+    private Vector3 _ingredientIndexPosition;
+
     public void FillIngredientIndex (ListVariableObject ingredients)
     {
         Transform instantiatedGameObject;
-        var position = Vector3.zero;
+        _ingredientIndexPosition = Vector3.zero;
         
         for (int j = 0; j < _ingredientsBooleanValues._booleanValues.Count; j++)
         {
@@ -35,7 +37,7 @@ public class IngredientIndex : MonoBehaviour
             {
                 instantiatedGameObject = Instantiate(ingredients._gameObjects[j]);
                 instantiatedGameObject.localScale = ConfigureScale(_scale);
-                instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, position, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
+                instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, _ingredientIndexPosition, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
                 _ingredientsBooleanValues._booleanValues[j] = true;
             }
         }
