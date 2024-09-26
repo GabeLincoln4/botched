@@ -34,13 +34,16 @@ public class IngredientIndex : MonoBehaviour
         
         for (int j = 0; j < _ingredientsBooleanValues._booleanValues.Count; j++)
         {
-            if (_ingredientsBooleanValues._booleanValues[j] == false)
+            if (AssertThatBooleanValueAtSpecifiedElementIsEqualToFalse(j))
             {
                 InstantiateGameObjectAtSpecifiedElement(ingredients._gameObjects[j]);
                 ConfigureScale();
                 SetInstantiatedGameObjectLocalScaleToScaledDownIndex();
-                _instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j);
-                _ingredientsBooleanValues._booleanValues[j] = true;
+                SetXPositionOfIngredientIndexBasedOnDesignerChosenOffsetAndDistanceFromNeighboringElement(j);
+                SetYPositionOfIngredientIndexBasedOnDesignerInput();
+                SetZPositionOfIngredientIndexBasedOnDesignerInput();
+                SetInstantiatedGameObjectLocalPositionToConfiguredPositionOfIngredientIndex();
+                SetBooleanVariableToTrueInIngredientsBooleanValuesList(j);
             }
         }
     }
@@ -48,21 +51,35 @@ public class IngredientIndex : MonoBehaviour
     private void InitializeIngredientIndexPosition()
     { _ingredientIndexPosition = Vector3.zero; }
 
+    private bool AssertThatBooleanValueAtSpecifiedElementIsEqualToFalse(int currentElement)
+    { 
+        if (_ingredientsBooleanValues._booleanValues[currentElement] == false)
+        { return true; }
+        else 
+        { return false; }
+    }
+
     private void InstantiateGameObjectAtSpecifiedElement(Transform ingredientListGameObject)
     { _instantiatedGameObject = Instantiate(ingredientListGameObject); }
-
-    private Vector3 ConfigurePositionOfIngredientIndex (int currentElement)
-    {
-        _ingredientIndexPosition.x = currentElement / _distanceFromNeighboringElement + _offset;
-        _ingredientIndexPosition.z = _zPosition;
-        _ingredientIndexPosition.y = _yPosition;
-
-        return _ingredientIndexPosition;
-    }
 
     private void ConfigureScale ()
     { _scaledDownIndex = Vector3.one / _scale; }
 
     private void SetInstantiatedGameObjectLocalScaleToScaledDownIndex()
     { _instantiatedGameObject.localScale = _scaledDownIndex; }
+
+    private void SetXPositionOfIngredientIndexBasedOnDesignerChosenOffsetAndDistanceFromNeighboringElement(int currentElement)
+    { _ingredientIndexPosition.x = currentElement / _distanceFromNeighboringElement + _offset; }
+
+    private void SetYPositionOfIngredientIndexBasedOnDesignerInput()
+    { _ingredientIndexPosition.y = _yPosition; }
+
+    private void SetZPositionOfIngredientIndexBasedOnDesignerInput()
+    { _ingredientIndexPosition.z = _zPosition; }
+
+    private void SetInstantiatedGameObjectLocalPositionToConfiguredPositionOfIngredientIndex ()
+    { _instantiatedGameObject.localPosition = _ingredientIndexPosition; }
+
+    private void SetBooleanVariableToTrueInIngredientsBooleanValuesList(int currentElement)
+    { _ingredientsBooleanValues._booleanValues[currentElement] = true; }
 }
