@@ -35,7 +35,7 @@ public class IngredientIndex : MonoBehaviour
         {
             if (_ingredientsBooleanValues._booleanValues[j] == false)
             {
-                _instantiatedGameObject = Instantiate(ingredients._gameObjects[j]);
+                InstantiateGameObjectAtSpecifiedElement(ingredients._gameObjects[j]);
                 _instantiatedGameObject.localScale = ConfigureScale(_scale);
                 _instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, _ingredientIndexPosition, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
                 _ingredientsBooleanValues._booleanValues[j] = true;
@@ -45,6 +45,9 @@ public class IngredientIndex : MonoBehaviour
 
     private void InitializeIngredientIndexPosition()
     { _ingredientIndexPosition = Vector3.zero; }
+
+    private void InstantiateGameObjectAtSpecifiedElement(Transform ingredientListGameObject)
+    { _instantiatedGameObject = Instantiate(ingredientListGameObject); }
 
     private Vector3 ConfigurePositionOfIngredientIndex (int currentElement, Vector3 position, float offset, float distanceFromNeighboringElement, float yPosition, float zPosition)
     {
