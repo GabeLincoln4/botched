@@ -38,8 +38,8 @@ public class IngredientIndex : MonoBehaviour
             {
                 InstantiateGameObjectAtSpecifiedElement(ingredients._gameObjects[j]);
                 ConfigureScale();
-                _instantiatedGameObject.localScale = _scaledDownIndex;
-                _instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, _ingredientIndexPosition, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
+                SetInstantiatedGameObjectLocalScaleToScaledDownIndex();
+                _instantiatedGameObject.localPosition = ConfigurePositionOfIngredientIndex(j, _offset, _distanceFromNeighboringElement, _yPosition, _zPosition);
                 _ingredientsBooleanValues._booleanValues[j] = true;
             }
         }
@@ -51,15 +51,18 @@ public class IngredientIndex : MonoBehaviour
     private void InstantiateGameObjectAtSpecifiedElement(Transform ingredientListGameObject)
     { _instantiatedGameObject = Instantiate(ingredientListGameObject); }
 
-    private Vector3 ConfigurePositionOfIngredientIndex (int currentElement, Vector3 position, float offset, float distanceFromNeighboringElement, float yPosition, float zPosition)
+    private Vector3 ConfigurePositionOfIngredientIndex (int currentElement, float offset, float distanceFromNeighboringElement, float yPosition, float zPosition)
     {
-        position.x = currentElement / distanceFromNeighboringElement + offset;
-        position.z = zPosition;
-        position.y = yPosition;
+        _ingredientIndexPosition.x = currentElement / distanceFromNeighboringElement + offset;
+        _ingredientIndexPosition.z = zPosition;
+        _ingredientIndexPosition.y = yPosition;
 
-        return position;
+        return _ingredientIndexPosition;
     }
 
     private void ConfigureScale ()
     { _scaledDownIndex = Vector3.one / _scale; }
+
+    private void SetInstantiatedGameObjectLocalScaleToScaledDownIndex()
+    { _instantiatedGameObject.localScale = _scaledDownIndex; }
 }
