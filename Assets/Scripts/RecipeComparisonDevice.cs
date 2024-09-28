@@ -23,14 +23,14 @@ public class RecipeComparisonDevice : MonoBehaviour
     [SerializeField]
     private IngredientFunctionLibrary _functionLibrary;
 
+    private bool _notAMatchWithAnyRecipes;
+
     public void CheckForMatchBetweenPredeterminedRecipeAndPlayerRecipe ()
     {
-        bool notAMatchWithPredeterminedRecipe = false;
-        bool notAMatchWithSecretRecipe = false;
-        bool notAMatchWithAnyRecipes = false;
+        SetNotAMatchWithAnyRecipesToFalse();
         for (int i = 0; i < _playerRecipe._gameObjects.Count; i++)
         {
-            _functionLibrary.AddBooleanVariableToListObject(_predeterminedRecipeMatchTracker);
+            AddABooleanVariableToThePredeterminedRecipeMatchTracker();
             _functionLibrary.AddBooleanVariableToListObject(_secretRecipeMatchTracker);
 
             if (_playerRecipe._gameObjects[i] == _predeterminedRecipe._gameObjects[i])
@@ -38,7 +38,7 @@ public class RecipeComparisonDevice : MonoBehaviour
             else if (_playerRecipe._gameObjects[i] == _secretRecipe._gameObjects[i])
             { _secretRecipeMatchTracker._booleanValues[i] = true; }
             else 
-            { notAMatchWithAnyRecipes = true; }
+            { _notAMatchWithAnyRecipes = true; }
         }
 
 
@@ -51,6 +51,12 @@ public class RecipeComparisonDevice : MonoBehaviour
         else
         { Debug.Log("botched... but not in a good way"); }
     }
+
+    private void SetNotAMatchWithAnyRecipesToFalse()
+    { _notAMatchWithAnyRecipes = false; }
+
+    private void AddABooleanVariableToThePredeterminedRecipeMatchTracker()
+    { _functionLibrary.AddBooleanVariableToListObject(_predeterminedRecipeMatchTracker); }
 
     private static bool isTrue(bool truthState) 
     { 
