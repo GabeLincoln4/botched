@@ -7,4 +7,7 @@ public static class PositionFunctionLibrary
         position = Vector3.zero; 
         return position;
     }
+
+    public static float GetSumOfElementInListDividedByDistanceBetweenNeigboringElementAndOffsetOfList(int elementInList, float distanceFromNeighboringElement, float offset)
+    { return elementInList / distanceFromNeighboringElement + offset; }
 }

@@ -69,7 +69,7 @@ public class IngredientIndex : MonoBehaviour
     { _instantiatedGameObject.localScale = _scaledDownIndex; }
 
     private void SetXPositionOfIngredientIndexBasedOnDesignerChosenOffsetAndDistanceFromNeighboringElement(int currentElement)
-    { _ingredientIndexPosition.x = currentElement / _distanceFromNeighboringElement + _offset; }
+    { _ingredientIndexPosition.x = GetSumOfElementInListDividedByDistanceBetweenNeigboringElementAndOffsetOfList(currentElement); }
 
     private void SetYPositionOfIngredientIndexBasedOnDesignerInput()
     { _ingredientIndexPosition.y = _yPosition; }
@@ -86,6 +86,11 @@ public class IngredientIndex : MonoBehaviour
     private Vector3 AlterScaleOfGivenTransform()
     { return ScaleFunctionLibrary.AlterScaleOfGivenTransform(_scale); }
 
+    private float GetSumOfElementInListDividedByDistanceBetweenNeigboringElementAndOffsetOfList(int currentElement)
+    { return PositionFunctionLibrary.GetSumOfElementInListDividedByDistanceBetweenNeigboringElementAndOffsetOfList(currentElement, _distanceFromNeighboringElement, _offset); }
+
     private Vector3 InitializePositionIn3DSpace()
     { return PositionFunctionLibrary.InitializePositionIn3DSpace(_ingredientIndexPosition); }
+
+    
 }
