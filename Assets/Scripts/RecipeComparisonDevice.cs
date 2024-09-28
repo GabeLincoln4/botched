@@ -36,9 +36,9 @@ public class RecipeComparisonDevice : MonoBehaviour
             if (AssertThatPlayerRecipeElementIsEqualToPredeterminedRecipeElement(i))
             { SetPredeterminedRecipeMatchTrackerElementToTrue(i);  }
             else if (AssertThatPlayerRecipeElementIsEqualToSecretRecipeElement(i))
-            { _secretRecipeMatchTracker._booleanValues[i] = true; }
+            { SetSecretRecipeMatchTrackerElementToTrue(i); }
             else 
-            { _notAMatchWithAnyRecipes = true; }
+            { SetNotAMatchWithAnyRecipesToTrue(); }
         }
 
 
@@ -67,8 +67,14 @@ public class RecipeComparisonDevice : MonoBehaviour
     private void SetNotAMatchWithAnyRecipesToFalse()
     { _notAMatchWithAnyRecipes = false; }
 
+    private void SetNotAMatchWithAnyRecipesToTrue()
+    { _notAMatchWithAnyRecipes = true; }
+
     private void SetPredeterminedRecipeMatchTrackerElementToTrue(int currentElement)
     { _predeterminedRecipeMatchTracker._booleanValues[currentElement] = true; }
+
+    private void SetSecretRecipeMatchTrackerElementToTrue(int currentElement)
+    { _secretRecipeMatchTracker._booleanValues[currentElement] = true; }
 
     private static bool isTrue(bool truthState) 
     { 
