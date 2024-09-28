@@ -35,7 +35,7 @@ public class RecipeComparisonDevice : MonoBehaviour
 
             if (AssertThatPlayerRecipeElementIsEqualToPredeterminedRecipeElement(i))
             { SetPredeterminedRecipeMatchTrackerElementToTrue(i);  }
-            else if (_playerRecipe._gameObjects[i] == _secretRecipe._gameObjects[i])
+            else if (AssertThatPlayerRecipeElementIsEqualToSecretRecipeElement(i))
             { _secretRecipeMatchTracker._booleanValues[i] = true; }
             else 
             { _notAMatchWithAnyRecipes = true; }
@@ -59,12 +59,10 @@ public class RecipeComparisonDevice : MonoBehaviour
     { _functionLibrary.AddBooleanVariableToListObject(_secretRecipeMatchTracker); }
 
     private bool AssertThatPlayerRecipeElementIsEqualToPredeterminedRecipeElement(int currentElement)
-    { 
-        if (_playerRecipe._gameObjects[currentElement] == _predeterminedRecipe._gameObjects[currentElement])
-        { return true; }
-        else 
-        { return false; }
-    }
+    { return AssertThatPrimaryTransformIsEqualToSecondaryTransform(_playerRecipe._gameObjects[currentElement], _predeterminedRecipe._gameObjects[currentElement]); }
+
+    private bool AssertThatPlayerRecipeElementIsEqualToSecretRecipeElement(int currentElement)
+    { return AssertThatPrimaryTransformIsEqualToSecondaryTransform(_playerRecipe._gameObjects[currentElement], _secretRecipe._gameObjects[currentElement]); }
 
     private void SetNotAMatchWithAnyRecipesToFalse()
     { _notAMatchWithAnyRecipes = false; }
@@ -76,4 +74,7 @@ public class RecipeComparisonDevice : MonoBehaviour
     { 
         return truthState == true; 
     } 
+
+    private bool AssertThatPrimaryTransformIsEqualToSecondaryTransform(Transform primaryTransform, Transform secondaryTransform)
+    { return ComparisonFunctionLibrary.AssertThatPrimaryTransformIsEqualToSecondaryTransform(primaryTransform, secondaryTransform); }
 }
