@@ -31,7 +31,7 @@ public class RecipeComparisonDevice : MonoBehaviour
         for (int i = 0; i < _playerRecipe._gameObjects.Count; i++)
         {
             AddABooleanVariableToThePredeterminedRecipeMatchTracker();
-            _functionLibrary.AddBooleanVariableToListObject(_secretRecipeMatchTracker);
+            AddABooleanVariableToTheSecretRecipeMatchTracker();
 
             if (_playerRecipe._gameObjects[i] == _predeterminedRecipe._gameObjects[i])
             { _predeterminedRecipeMatchTracker._booleanValues[i] = true;  }
@@ -52,11 +52,14 @@ public class RecipeComparisonDevice : MonoBehaviour
         { Debug.Log("botched... but not in a good way"); }
     }
 
-    private void SetNotAMatchWithAnyRecipesToFalse()
-    { _notAMatchWithAnyRecipes = false; }
-
     private void AddABooleanVariableToThePredeterminedRecipeMatchTracker()
     { _functionLibrary.AddBooleanVariableToListObject(_predeterminedRecipeMatchTracker); }
+
+    private void AddABooleanVariableToTheSecretRecipeMatchTracker()
+    { _functionLibrary.AddBooleanVariableToListObject(_secretRecipeMatchTracker); }
+
+    private void SetNotAMatchWithAnyRecipesToFalse()
+    { _notAMatchWithAnyRecipes = false; }
 
     private static bool isTrue(bool truthState) 
     { 
