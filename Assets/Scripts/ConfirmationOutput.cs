@@ -15,12 +15,12 @@ public class ConfirmationOutput : MonoBehaviour
 
     public void IncrementAlphaValue ()
     {
-        GetColor();
+        GetColorFromTargetGameObject();
         AssertThatMaterialColorAlphaIsGreaterThanMaximumAlphaValue();
         Increment();
     }
 
-    private void GetColor ()
+    private void GetColorFromTargetGameObject ()
     { _materialColor = _targetGameObject.GetComponent<MeshRenderer>().material.color; }
 
     private void Increment()
