@@ -13,9 +13,9 @@ public class ConfirmationOutput : MonoBehaviour
     private Transform _targetGameObject;
     private Color _materialColor;
 
-    private Color GetColor (Transform gameObject)
+    private Color GetColor ()
     {   
-        return gameObject.GetComponent<MeshRenderer>().material.color; 
+        return _targetGameObject.GetComponent<MeshRenderer>().material.color; 
     }
 
     public void IncrementAlphaValue ()
