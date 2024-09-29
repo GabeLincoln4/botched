@@ -13,18 +13,29 @@ public class ConfirmationOutput : MonoBehaviour
     private Transform _targetGameObject;
     private Color _materialColor;
 
-    private Color GetColor ()
-    {   
-        return _targetGameObject.GetComponent<MeshRenderer>().material.color; 
-    }
-
     public void IncrementAlphaValue ()
     {
-        _materialColor = GetColor(_targetGameObject);
-        if (_materialColor.a <= _maximumAlphaValue)
-        {
-            _materialColor.a += _durationOfFadeIn * Time.deltaTime;
-            _targetGameObject.GetComponent<MeshRenderer>().material.color = _materialColor;
-        }
+        GetColor();
+        AssertThatMaterialColorAlphaIsGreaterThanMaximumAlphaValue();
+        Increment();
     }
+
+    private void GetColor ()
+    { _materialColor = _targetGameObject.GetComponent<MeshRenderer>().material.color; }
+
+    private void OutputMessage()
+    { Debug.Log("material color is less than maximum alpha value"); }
+
+    private void Increment()
+    {
+        _materialColor.a += _durationOfFadeIn * Time.deltaTime;
+        _targetGameObject.GetComponent<MeshRenderer>().material.color = _materialColor;
+    }
+
+    private void AssertThatMaterialColorAlphaIsGreaterThanMaximumAlphaValue()
+    {
+        if (_materialColor.a > _maximumAlphaValue)
+        { return; }
+    }
+
 }
