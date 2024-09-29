@@ -23,9 +23,6 @@ public class ConfirmationOutput : MonoBehaviour
     private void GetColor ()
     { _materialColor = _targetGameObject.GetComponent<MeshRenderer>().material.color; }
 
-    private void OutputMessage()
-    { Debug.Log("material color is less than maximum alpha value"); }
-
     private void Increment()
     {
         _materialColor.a += _durationOfFadeIn * Time.deltaTime;
@@ -37,5 +34,4 @@ public class ConfirmationOutput : MonoBehaviour
         if (_materialColor.a > _maximumAlphaValue)
         { return; }
     }
-
 }
