@@ -40,16 +40,6 @@ public class RecipeComparisonDevice : MonoBehaviour
             else 
             { SetNotAMatchWithAnyRecipesToTrue(); }
         }
-
-
-        if (_predeterminedRecipeMatchTracker._booleanValues.Count == 0)
-        { Debug.Log("botched... but not in a good way"); }
-        else if (_predeterminedRecipeMatchTracker._booleanValues.TrueForAll(isTrue))
-        { Debug.Log("perfect...."); }
-        else if (_secretRecipeMatchTracker._booleanValues.TrueForAll(isTrue))
-        { Debug.Log("Botched!"); }
-        else
-        { Debug.Log("botched... but not in a good way"); }
     }
 
     private void AddABooleanVariableToThePredeterminedRecipeMatchTracker()
