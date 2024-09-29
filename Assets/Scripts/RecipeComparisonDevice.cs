@@ -66,11 +66,6 @@ public class RecipeComparisonDevice : MonoBehaviour
     private void SetSecretRecipeMatchTrackerElementToTrue(int currentElement)
     { _secretRecipeMatchTracker._booleanValues[currentElement] = true; }
 
-    private static bool isTrue(bool truthState) 
-    { 
-        return truthState == true; 
-    } 
-
     private bool AssertThatPrimaryTransformIsEqualToSecondaryTransform(Transform primaryTransform, Transform secondaryTransform)
     { return ComparisonFunctionLibrary.AssertThatPrimaryTransformIsEqualToSecondaryTransform(primaryTransform, secondaryTransform); }
 }
