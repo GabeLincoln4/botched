@@ -529,6 +529,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1027646097 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5684178260952582479, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+  m_PrefabInstance: {fileID: 3230707717757796697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1212151402
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,14 +984,34 @@ PrefabInstance:
       propertyPath: _durationOfFadeIn
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 7707435748199356402, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _targetGameObject
+      value: 
+      objectReference: {fileID: 1923022783}
+    - target: {fileID: 7707435748199356402, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _maximumAlphaValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
       propertyPath: _gameEvent
       value: 
       objectReference: {fileID: 11400000, guid: 0d8d98f367a9c7845a69b5f1263635b5, type: 2}
     - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
       propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1923022778}
+    - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
@@ -1004,6 +1029,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b352385d935b82d4f92e29931c04b6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1923022783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5684178260952582479, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+  m_PrefabInstance: {fileID: 1923022777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015145206 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4568123838587413443, guid: a32196bcbdddd5945a087ea6c67a061b, type: 3}
@@ -1192,6 +1222,26 @@ PrefabInstance:
     - target: {fileID: 7707435748199356402, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
       propertyPath: _durationOfFadeIn
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707435748199356402, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _targetGameObject
+      value: 
+      objectReference: {fileID: 1027646097}
+    - target: {fileID: 7707435748199356402, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _maximumAlphaValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934842584195576946, guid: 8622d340b6c0ed440bb00ee09c84660a, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
